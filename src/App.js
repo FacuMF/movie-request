@@ -1,25 +1,47 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import SideBar from "./components/SideBar";
+import MainContent from "./components/MainContent";
+import React from "react";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      categoria: "peliculas",
+      searchMode: false,
+    };
+
+    this.changeCategory = this.changeCategory.bind(this);
+  }
+
+  changeCategory = (categoriaELegida) => {
+    this.setState({
+      categoria: categoriaELegida,
+      searchMode: false,
+    });
+  };
+
+  setSearchMode = (value) => {
+    this.setState({
+      searchMode: value,
+    });
+  };
+
+  render() {
+    return (
+      <div className="App">
+        <SideBar
+          categoria={this.state.categoria}
+          onCategoryChange={this.changeCategory}
+        />
+        <MainContent
+          categoria={this.state.categoria}
+          searchMode={this.state.searchMode}
+          setSearchMode={this.setSearchMode}
+        />
+      </div>
+    );
+  }
 }
 
 export default App;

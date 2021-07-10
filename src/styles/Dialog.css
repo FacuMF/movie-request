@@ -1,0 +1,111 @@
+.dialog-background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.7);
+  z-index: 1000;
+}
+
+.dialog-container {
+  width: 900px;
+  height: 510px;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: black;
+  z-index: 1000;
+  border-radius: 25px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+ .dialog-content {
+  position: relative;
+  top: -450px;
+  width: 90%;
+  height: 392px;
+  display: flex;
+  flex-direction: row;
+} 
+
+ .poster-image {
+  border-radius: 15px;
+}
+
+#dialog-text {
+  width: auto;
+  color: white;
+  margin-left: 20px;
+}
+
+.close-dialog {
+  position: absolute;
+  top: -20px;
+  left: 95%;
+  width: 3rem;
+  height: 3rem;
+  color: cornsilk;
+  font-size: 30px;
+  border-radius: 50%;
+  background-color: rgba(0, 0, 0, 0.3);
+  border: none;
+  outline: none;
+  padding-top: 5px;
+}
+
+#back-img{
+  position: relative;
+  width: 100%;
+  height: auto;
+}
+
+
+@media (max-width: 360px) {
+  .dialog-container {
+    width: 94vw;
+    height: 95vh;
+  }
+
+  #back-img{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+  }
+
+  .dialog-content{
+    top: 5%;
+    position: inherit;
+    display: flex;
+    height: 95%;
+    width: 95%;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .poster-image {
+    border-radius: 15px;
+    transform: scale(0.5);
+    margin-top: 80px;
+  }
+
+  #dialog-text{
+    position: relative;
+    bottom:200px;
+    font-size: 0.78rem;
+    padding-top: 20px;
+    padding-bottom: 90px;
+  }
+
+  .close-dialog{
+    transform: scale(0.7);
+    position: inherit;
+    top: 10px;
+    left: 290px;
+  }
+
+}
